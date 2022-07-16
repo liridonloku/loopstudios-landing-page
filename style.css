@@ -141,10 +141,23 @@ header .container .statement {
   position: relative;
 }
 
+.creations .container .card div {
+  position: absolute;
+  top: 0;
+  height: 450px;
+  width: 100%;
+  background: rgb(0, 0, 0, 0);
+  background: linear-gradient(
+    360deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
 .creations .container .card p {
   margin-left: 50px;
   font-family: var(--big-font);
-  font-size: 1.5em;
+  font-size: 2em;
   color: var(--white);
   position: absolute;
   bottom: 40px;
