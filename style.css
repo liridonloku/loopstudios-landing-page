@@ -43,6 +43,10 @@ header .container nav {
   align-items: center;
 }
 
+header .container nav .logo-container img {
+  cursor: pointer;
+}
+
 header .container nav .menu-icon {
   display: none;
 }
@@ -53,6 +57,28 @@ header .container nav ul {
   display: flex;
   gap: 2em;
   color: var(--white);
+}
+
+header .container nav ul li {
+  position: relative;
+  cursor: pointer;
+}
+
+header .container nav ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background-color: var(--white);
+  transition: all;
+  transition-duration: 150ms;
+}
+
+header .container nav ul li:hover::after {
+  left: 25%;
+  right: 25%;
 }
 
 header .container .statement {
@@ -98,6 +124,7 @@ header .container .statement {
   font-size: 3em;
   color: var(--black);
   margin-bottom: 20px;
+  word-break: break-word;
 }
 
 .main-section .container .description p {
@@ -126,6 +153,7 @@ header .container .statement {
   font-size: 3em;
   margin-bottom: 30px;
   align-self: center;
+  word-break: break-word;
 }
 
 .creations .container button {
@@ -139,10 +167,19 @@ header .container .statement {
   border: 1px solid var(--black);
   background: none;
   cursor: pointer;
+  transition-property: color, border, background-color;
+  transition-duration: 150ms;
+}
+
+.creations .container button:hover {
+  border: 1px solid var(--white);
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .creations .container .card {
   position: relative;
+  cursor: pointer;
 }
 
 .creations .container .card div {
@@ -156,6 +193,12 @@ header .container .statement {
     rgba(0, 0, 0, 0.6) 0%,
     rgba(0, 0, 0, 0) 100%
   );
+  transition-property: background-color;
+  transition-duration: 150ms;
+}
+
+.creations .container .card:hover div {
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .creations .container .card p {
@@ -165,6 +208,10 @@ header .container .statement {
   color: var(--white);
   position: absolute;
   bottom: 30px;
+}
+
+.creations .container .card:hover p {
+  color: var(--black);
 }
 
 footer {
@@ -188,10 +235,31 @@ footer .container .left .logo img {
 }
 
 footer .container .left .links a {
+  display: inline-block;
   font-family: var(--small-font);
   margin-right: 30px;
+  margin-bottom: 10px;
   text-decoration: none;
   color: var(--white);
+  position: relative;
+}
+
+footer .container .left .links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  right: 50%;
+  height: 0px;
+  background-color: var(--white);
+  transition: all;
+  transition-duration: 150ms;
+}
+
+footer .container .left .links a:hover::after {
+  left: 25%;
+  right: 25%;
+  height: 2px;
 }
 
 footer .container .right .socials {
@@ -201,13 +269,37 @@ footer .container .right .socials {
   margin-bottom: 25px;
 }
 
-footer .container .right .socials img {
+footer .container .right .socials .social-icon {
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  position: relative;
+}
+
+footer .container .right .socials .social-icon::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background-color: var(--white);
+  transition: all;
+  transition-duration: 150ms;
+}
+
+footer .container .right .socials .social-icon:hover::after {
+  left: 0;
+  right: 0;
 }
 
 footer .container .right .copyright {
   font-family: var(--small-font);
   color: var(--dark-grey);
+}
+
+footer .container .right .copyright p {
+  text-align: end;
 }
 
 @media screen and (max-width: 1100px) {
@@ -258,7 +350,7 @@ footer .container .right .copyright {
   }
 
   .creations .container .card div {
-    height: calc(100% - 5px);
+    height: calc(100% - 4px);
   }
 
   .creations .container .card p {
@@ -290,6 +382,7 @@ footer .container .right .copyright {
   .creations .container h1 {
     grid-column: 1;
     justify-self: center;
+    text-align: center;
   }
 
   .creations .container button {
@@ -322,6 +415,10 @@ footer .container .right .copyright {
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+    text-align: center;
+  }
+
+  footer .container .right .copyright p {
     text-align: center;
   }
 }
