@@ -125,6 +125,7 @@ header .container .statement {
   color: var(--black);
   margin-bottom: 20px;
   word-break: break-word;
+  min-height: 108px;
 }
 
 .main-section .container .description p {
